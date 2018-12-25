@@ -1,4 +1,19 @@
-# React Native Web Starter
+# Tabmaker React
+
+## Quick Start
+
+1. install dependencies
+sudo apt-get install -y nodejs
+sudo ln -s /usr/local/bin/node /usr/local/bin/nodejs
+sudo npm install -g react expo-cli react-native-scripts react-scripts
+npm install
+
+2. run on web
+react-scripts start
+
+3. run on android
+react-native-scripts android
+
 
 ## Introduction
 
