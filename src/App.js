@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text, Animated, StyleSheet, StatusBar } from "react-native";
+import model from './Model/Model';
+import CrossImage from "./Util/CrossImage";
 
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-
         this.imageAnimation = new Animated.Value(0);
+        this.state = model
     }
 
     componentDidMount() {
@@ -15,7 +17,6 @@ export default class App extends React.Component {
                 duration: 1005
             })
         ).start();
-
         StatusBar.setBarStyle("light-content");
     }
 
@@ -37,13 +38,22 @@ export default class App extends React.Component {
                     <Animated.Image
                         style={[styles.headerImage, rotationStyle]}
                         resizeMode={"contain"}
-                        source={require("./assets/react-logo.png")}
+                        source={require("./assets/undo.png")}
                     />
                     <Text style={styles.appTitle}>Welcome to React Native Web️</Text>
                     <Text style={styles.appSubtitle}>Vanilla Edition</Text>
                 </View>
                 <View style={{ alignItems: "center", flex: 3 }}>
-                    <Text style={styles.appIntro}>To get started, edit src/App.js and save to reload.</Text>
+                    <Text style={styles.appIntro}>To get started, edit src/App.js and save to reload. Your platform is: {model.display.platform}</Text>
+                </View>
+                <View>
+                    <CrossImage
+                      style={styles.headerImage2}
+                      resizeMode={"contain"}
+                      source={"undo"}
+                      platform={this.state.display.platform}
+
+                    />
                 </View>
             </View>
         );
@@ -65,6 +75,16 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
         flex: 3
+    },
+    headerImage2: {
+        width: 200,
+        height: 200,
+        top: 0,
+        left: 0
+    },
+    undoImage: {
+        height: .2 * model.display.width,
+        flex: 3,
     },
     appTitle: {
         flex: 1,
