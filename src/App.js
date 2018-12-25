@@ -11,17 +11,12 @@ export default class App extends React.Component {
     const { width, height } = Dimensions.get('window');
     this.state = {...model, width: width, height: height}
     console.log("model is: " + model)
+    if (Platform.OS === 'web')
+      window.addEventListener("resize", () => setTimeout(this.updateDimensions.bind(this), 50));
   }
   updateDimensions() {
     const { width, height } = Dimensions.get('window');
     this.setState({height: height, width: width});
-  }
-  componentDidMount() {
-    if (Platform.OS === 'web')
-      window.addEventListener("resize", this.updateDimensions.bind(this));
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
   render() {
     console.log("state is: " + this.state)

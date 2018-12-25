@@ -6,20 +6,14 @@ export default class Elm extends React.Component {
     super(props)
     const {height, width} = Dimensions.get('window');
     this.state = {height: height, width: width, top: 0}
-  }
 
+    if (Platform.OS === 'web')
+      window.addEventListener("resize", () => setTimeout(this.updateDimensions.bind(this), 50));
+  }
   updateDimensions() {
     const { width, height } = Dimensions.get('window');
     this.setState({height: height, width: width});
   }
-  componentDidMount() {
-    if (Platform.OS === 'web')
-      window.addEventListener("resize", this.updateDimensions.bind(this));
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions.bind(this));
-  }
-
   render() {
     return (
       <View style={{
