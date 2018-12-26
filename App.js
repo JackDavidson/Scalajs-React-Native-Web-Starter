@@ -1,8 +1,26 @@
 import React from "react";
 import HybridApp from "./src/App";
+import {Platform} from "react-native";
+import Elm from "./src/Util/Elm";
 
 export default class NativeApp extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            fontsAreLoaded: false
+        }
+    }
+
+    async componentWillMount() {
+        if (Platform.OS === 'android') {
+            await require('expo').Font.loadAsync({
+                'Courier New': require('./src/assets/fonts/courier_new.ttf')
+            })
+        }
+        this.setState({ fontsAreLoaded: true })
+    }
     render() {
-        return <HybridApp />;
+        const { fontsAreLoaded } = this.state
+        return !fontsAreLoaded ? <Elm/> : <HybridApp />
     }
 }

@@ -3,6 +3,7 @@ import {Dimensions, Platform, StatusBar} from "react-native";
 import model from './Model/Model';
 import LowerMenu from "./Menu/LowerMenu";
 import Elm from "./Util/Elm";
+import Tab from "./Components/Tab";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class App extends React.Component {
                    scale={this.state.display.scale}
                    screenHeight={this.state.height}
                    screenWidth={this.state.width}/>
+        <Tab/>
       </Elm>
     );
   }
