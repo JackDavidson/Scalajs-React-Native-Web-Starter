@@ -10,19 +10,37 @@ const courierSizing = {
   '32': {height: 30 , width: 19.4},
 }
 
+const defaultTab = {
+  lines: [
+    "-".repeat(100),
+    "-".repeat(100),
+    "-".repeat(100),
+    "-".repeat(100),
+    "-".repeat(100),
+    "-".repeat(100),
+  ],
+  lineSemitones: [
+
+  ]
+}
+
 export default class Tab extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {top: 0, fontSize: 32}
+
+    // first thing: we need to figure out how many lines to create.
+    const charsPerLine =
+
+    this.state = {top: 0, fontSize: 32, tab: defaultTab}
   }
   render() {
+    const charsPerLine = this.props.screenWidth/courierSizing[this.state.fontSize].width
+
     return (
       <StringLine
-      text={'-'.repeat(parseInt(this.props.screenWidth/courierSizing[this.state.fontSize].width))}
+      text={'-'.repeat(parseInt(5))}
       fontSize={this.state.fontSize}
-
       left={5}
-
       top={20}
       />
     );
