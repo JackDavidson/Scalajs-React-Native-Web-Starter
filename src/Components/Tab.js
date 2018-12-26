@@ -13,22 +13,16 @@ const courierSizing = {
 export default class Tab extends React.Component {
   constructor(props) {
     super(props)
-    const {height, width} = Dimensions.get('window');
-    this.state = {height: height, width: width, top: 0, fontSize: 32}
-
-    if (Platform.OS === 'web')
-      window.addEventListener("resize", () => setTimeout(this.updateDimensions.bind(this), 50));
-  }
-  updateDimensions() {
-    const { width, height } = Dimensions.get('window');
-    this.setState({height: height, width: width});
+    this.state = {top: 0, fontSize: 32}
   }
   render() {
     return (
       <StringLine
-      text={'-'.repeat(parseInt(this.state.width/courierSizing[this.state.fontSize].width))}
+      text={'-'.repeat(parseInt(this.props.screenWidth/courierSizing[this.state.fontSize].width))}
       fontSize={this.state.fontSize}
+
       left={5}
+      
       top={20}
       />
     );

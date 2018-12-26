@@ -14,6 +14,8 @@ export default class App extends React.Component {
     console.log("model is: " + model)
     if (Platform.OS === 'web')
       window.addEventListener("resize", () => setTimeout(this.updateDimensions.bind(this), 50));
+
+    Dimensions.addEventListener("change", this.updateDimensions.bind(this));
   }
   updateDimensions() {
     const { width, height } = Dimensions.get('window');
@@ -30,7 +32,8 @@ export default class App extends React.Component {
                    screenHeight={this.state.height}
                    screenWidth={this.state.width}
                    updateModel={this.setState}/>
-        <Tab/>
+        <Tab screenHeight={this.state.height}
+          screenWidth={this.state.width}/>
       </Elm>
     );
   }

@@ -17,6 +17,7 @@ export default class LowerMenu extends React.Component {
       posSoFar += (a.width * this.props.scale + spaceBetweenComponents)
       return result
     })
+
     return (
       <Elm>
         <MenuButton

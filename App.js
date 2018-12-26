@@ -1,7 +1,6 @@
 import React from "react";
 import HybridApp from "./src/App";
-import {Platform} from "react-native";
-import Elm from "./src/Util/Elm";
+import {Platform, View} from "react-native";
 
 export default class NativeApp extends React.Component {
     constructor() {
@@ -21,6 +20,6 @@ export default class NativeApp extends React.Component {
     }
     render() {
         const { fontsAreLoaded } = this.state
-        return !fontsAreLoaded ? <Elm/> : <HybridApp />
+        return !fontsAreLoaded ? <View/> : <HybridApp />
     }
 }

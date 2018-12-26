@@ -1,12 +1,10 @@
-import {Image, TouchableHighlight} from "react-native";
+import {Image, TouchableHighlight, TouchableOpacity} from "react-native";
 import React from "react";
 
-export default class MenuButton extends React.Component {
-  render() {
-    return (
-      <TouchableHighlight onPress={this.props.onPress}>
-        <Image{...this.props}/>
-      </TouchableHighlight>
-    )
-  }
+export default function MenuButton(props) {
+  return (
+    <TouchableOpacity onPress={props.onPress} style={props.style}>
+      <Image source={props.source}  style={{width: props.style.width, height: props.style.height}}/>
+    </TouchableOpacity>
+  )
 }
