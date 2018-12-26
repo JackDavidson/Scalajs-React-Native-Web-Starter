@@ -12,5 +12,9 @@ export const assets = {
     src: require('./assets/dots.png'),
     width: 514
   },
+  sizing: {
+    src: require('./assets/sizing.png'),
+    width: 610
+  },
 }
 export default assets;
