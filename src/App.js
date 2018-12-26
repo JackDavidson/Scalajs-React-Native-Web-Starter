@@ -12,9 +12,6 @@ export default class App extends React.Component {
     const { width, height } = Dimensions.get('window');
     this.state = {...model, width: width, height: height}
     console.log("model is: " + model)
-    if (Platform.OS === 'web')
-      window.addEventListener("resize", () => setTimeout(this.updateDimensions.bind(this), 50));
-
     Dimensions.addEventListener("change", this.updateDimensions.bind(this));
   }
   updateDimensions() {
@@ -28,6 +25,7 @@ export default class App extends React.Component {
         <StatusBar hidden />
         <LowerMenu desktop={this.state.display.desktop}
                    portrait={this.state.display.portrait}
+                   lockOrientation={this.props.lockOrientation}
                    scale={this.state.display.scale}
                    screenHeight={this.state.height}
                    screenWidth={this.state.width}

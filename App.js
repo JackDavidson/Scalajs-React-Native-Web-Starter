@@ -18,8 +18,23 @@ export default class NativeApp extends React.Component {
         }
         this.setState({ fontsAreLoaded: true })
     }
+
+    lockOrientation(orientation) {
+        const expo = require('expo')
+        switch (orientation) {
+          case "all":
+            expo.ScreenOrientation.allow(expo.ScreenOrientation.Orientation.ALL)
+          case "portrait":
+            expo.ScreenOrientation.allow(expo.ScreenOrientation.Orientation.PORTRAIT)
+          case "landscape_left":
+            expo.ScreenOrientation.allow(expo.ScreenOrientation.Orientation.LANDSCAPE_LEFT)
+          case "landscape":
+            expo.ScreenOrientation.allow(expo.ScreenOrientation.Orientation.LANDSCAPE)
+        }
+    }
+
     render() {
         const { fontsAreLoaded } = this.state
-        return !fontsAreLoaded ? <View/> : <HybridApp />
+        return !fontsAreLoaded ? <View/> : <HybridApp lockOrientation={this.lockOrientation}/>
     }
 }

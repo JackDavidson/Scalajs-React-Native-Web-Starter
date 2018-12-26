@@ -22,7 +22,7 @@ export default class Tab extends React.Component {
       fontSize={this.state.fontSize}
 
       left={5}
-      
+
       top={20}
       />
     );
