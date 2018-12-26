@@ -5,7 +5,7 @@ import Elm from "../Util/Elm";
 
 export default class LowerMenu extends React.Component {
   render() {
-    const toDisplay = [assets.redo, assets.undo]
+    const toDisplay = [assets.redo, assets.undo, assets.dots]
     console.log("screen width: " + this.props.screenWidth)
     console.log("total button width: " + toDisplay.map(a => a.width * this.props.scale).reduce((a,b) => a + b))
     const spaceBetweenComponents = (this.props.screenWidth - toDisplay.map(a => a.width * this.props.scale).reduce((a,b) => a + b))  / (1 + toDisplay.length)
@@ -17,30 +17,36 @@ export default class LowerMenu extends React.Component {
     })
     return (
       <Elm>
-        <Elm>
-          <MenuButton
-            style={{...dynamicStyles.normalButton,
-              top: this.props.screenHeight - assets.buttonHeights * this.props.scale,
-              left: positions[0],
-              width: assets.redo.width * this.props.scale,
-              height: assets.buttonHeights * this.props.scale,
-              position: 'absolute'}}
-            resizeMode={"contain"}
-            source={assets.undo.src}
-          />
-        </Elm>
-        <Elm>
-          <MenuButton
-            style={{...dynamicStyles.normalButton,
-              top: this.props.screenHeight - assets.buttonHeights * this.props.scale,
-              left: positions[1],
-              width: assets.redo.width * this.props.scale,
-              height: assets.buttonHeights * this.props.scale,
-              position: 'absolute'}}
-            resizeMode={"contain"}
-            source={assets.redo.src}
-          />
-        </Elm>
+        <MenuButton
+          style={{...dynamicStyles.normalButton,
+            top: this.props.screenHeight - assets.buttonHeights * this.props.scale,
+            left: positions[0],
+            width: assets.redo.width * this.props.scale,
+            height: assets.buttonHeights * this.props.scale,
+            position: 'absolute'}}
+          resizeMode={"contain"}
+          source={assets.undo.src}
+        />
+        <MenuButton
+          style={{...dynamicStyles.normalButton,
+            top: this.props.screenHeight - assets.buttonHeights * this.props.scale,
+            left: positions[1],
+            width: assets.redo.width * this.props.scale,
+            height: assets.buttonHeights * this.props.scale,
+            position: 'absolute'}}
+          resizeMode={"contain"}
+          source={assets.redo.src}
+        />
+        <MenuButton
+          style={{...dynamicStyles.normalButton,
+            top: this.props.screenHeight - assets.buttonHeights * this.props.scale,
+            left: positions[2],
+            width: assets.redo.width * this.props.scale,
+            height: assets.buttonHeights * this.props.scale,
+            position: 'absolute'}}
+          resizeMode={"contain"}
+          source={assets.dots.src}
+        />
       </Elm>
     )
   }

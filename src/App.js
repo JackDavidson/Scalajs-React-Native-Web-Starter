@@ -28,7 +28,8 @@ export default class App extends React.Component {
                    portrait={this.state.display.portrait}
                    scale={this.state.display.scale}
                    screenHeight={this.state.height}
-                   screenWidth={this.state.width}/>
+                   screenWidth={this.state.width}
+                   updateModel={this.setState}/>
         <Tab/>
       </Elm>
     );
