@@ -1,5 +1,36 @@
 # Tabmaker React
 
+
+remember:
+
+node_modules/react-native-scripts/build/bin/crna-entry.js
+
+
+at the end of the file:
+const NativeApp = $m_Lsri_mobile_template_default_package$().root$1
+export default NativeApp
+
+additionally, StackNavigator became createStackNavigator
+then, I deleted .babelrc
+
+
+also added these files:
+
+}jdavidson@ubuntu-jack-desktop-0001:~/Desktop/workspace/tabmaker-react$ cat src/.expo/
+packager-info.json  settings.json       
+jdavidson@ubuntu-jack-desktop-0001:~/Desktop/workspace/tabmaker-react$ cat src/.expo/*
+{
+  "devToolsPort": 19007
+}{
+  "hostType": "lan",
+  "lanType": "ip",
+  "dev": true,
+  "minify": false,
+  "urlRandomness": null
+}jdavidson@ubuntu-jack-desktop-0001:~/Desktop/workspace/tabmaker-react$ 
+
+
+
 ## Quick Start
 
 1. install dependencies
