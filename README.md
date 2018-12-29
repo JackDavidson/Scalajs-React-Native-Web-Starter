@@ -1,5 +1,25 @@
 # Tabmaker React
 
+const SRI = require("./assets/js/scalajs-output-android").MyExportedComponent;
+return SRI
+
+
+
+
+removing:
+"react-navigation": "^2.18.3"
+
+
+
+  "rnpm": {
+    "assets": [
+      "./app/assets/fonts/"
+    ]
+  },
+
+
+to build sri stuff:
+sbt ~android:dev
 
 remember:
 
@@ -9,6 +29,13 @@ node_modules/react-native-scripts/build/bin/crna-entry.js
 at the end of the file:
 const NativeApp = $m_Lsri_mobile_template_default_package$().root$1
 export default NativeApp
+
+further, wrapped in:
+/*eslint-disable no-undef*/
+/*eslint-enable no-undef*/
+
+
+
 
 additionally, StackNavigator became createStackNavigator
 then, I deleted .babelrc
