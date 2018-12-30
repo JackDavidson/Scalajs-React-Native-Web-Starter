@@ -1,75 +1,34 @@
-# Tabmaker React
+# Scalajs React Native Web Starter
 
-const SRI = require("./assets/js/scalajs-output-android").MyExportedComponent;
-return SRI
+The purpose of this repository is to provide a minimal example app that combines scalajs-react-native with react-native-web for a cross-platform web/android/ios app written in scala.
 
-
-
-
-removing:
-"react-navigation": "^2.18.3"
-
-
-
-  "rnpm": {
-    "assets": [
-      "./app/assets/fonts/"
-    ]
-  },
-
-
-to build sri stuff:
-sbt ~android:dev
-
-remember:
-
-node_modules/react-native-scripts/build/bin/crna-entry.js
-
-
-at the end of the file:
-const NativeApp = $m_Lsri_mobile_template_default_package$().root$1
-export default NativeApp
-
-further, wrapped in:
-/*eslint-disable no-undef*/
-/*eslint-enable no-undef*/
-
-
-
-
-additionally, StackNavigator became createStackNavigator
-then, I deleted .babelrc
-
-
-also added these files:
-
-}jdavidson@ubuntu-jack-desktop-0001:~/Desktop/workspace/tabmaker-react$ cat src/.expo/
-packager-info.json  settings.json       
-jdavidson@ubuntu-jack-desktop-0001:~/Desktop/workspace/tabmaker-react$ cat src/.expo/*
-{
-  "devToolsPort": 19007
-}{
-  "hostType": "lan",
-  "lanType": "ip",
-  "dev": true,
-  "minify": false,
-  "urlRandomness": null
-}jdavidson@ubuntu-jack-desktop-0001:~/Desktop/workspace/tabmaker-react$ 
-
-
+Thins to do:
+1. add support for fullOptJS in build.sbt
+2. Add some images and navigation
+3. Remove references to tabmaker, the app I was working on when putting this together
+4. Fully document setup
+5. Create Dockerfile and provide instructions to use it for a truly quick start
+ 
 
 ## Quick Start
 
-1. install dependencies
+1. install dependencies (commands are for ubuntu 16.04
 sudo apt-get install -y nodejs
 sudo ln -s /usr/local/bin/node /usr/local/bin/nodejs
 sudo npm install -g react expo-cli react-native-scripts react-scripts
 npm install
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+sudo apt-get update
+sudo apt-get install sbt
 
-2. run on web
+2. have scala.js generate the javascript file (~ enabels hot-recompiles)
+sbt ~fastOptJS 
+
+3. run on web
 react-scripts start
 
-3. run on android
+4. run on android (requires an emulator or phone, plus android SDK 27)
 react-native-scripts android
 
 
