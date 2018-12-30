@@ -1,7 +1,6 @@
 package sri.mobile.template
 import sri.navigation._
 import sri.navigation.navigators._
-import sri.platform.SriPlatform
 import sri.universal.apis.Alert
 import sri.universal.components.{Button, ButtonComponent, TextC}
 

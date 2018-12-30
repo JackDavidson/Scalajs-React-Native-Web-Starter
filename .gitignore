@@ -1,4 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
+src/assets/generated/scalajs-output.js
+src/target
+src/.idea
+src/project/project
+src/project/target
 
 # dependencies
 /node_modules

@@ -4,13 +4,14 @@ import model from './Model/Model';
 import LowerMenu from "./Menu/LowerMenu";
 import Elm from "./Util/Elm";
 import Tab from "./Components/Tab";
+const SRI = require("./assets/generated/scalajs-output").MyExportedComponent;
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     StatusBar.setHidden(true, 'slide');
     const { width, height } = Dimensions.get('window');
-    this.state = {...model, width: width, height: height}
+    this.state = { width: width, height: height}
     console.log("model is: " + model)
     Dimensions.addEventListener("change", this.updateDimensions.bind(this));
   }
@@ -20,6 +21,11 @@ export default class App extends React.Component {
   }
   render() {
     console.log("state is: " + this.state)
+    const SRIWText = SRI('starting text ')
+    console.log('sri w text is:')
+    console.log(SRIWText.someVar$1)
+    SRIWText.setSomeVar('some new text')
+    return SRIWText.render()
     return (
       <Elm>
         <StatusBar hidden />

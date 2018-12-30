@@ -1,36 +1,28 @@
 package sri.mobile.template
 
-
+import sri.core.ReactElement
 import sri.universal.components.TextC
 
-import scala.scalajs.js.annotation.JSExportTopLevel
+import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 import scala.language.postfixOps
+import scala.scalajs.js
 
 object MobileApp {
-  // not used
   def main(args: Array[String]) = {}
-
-  @JSExportTopLevel("MyExportedComponent")
-  val MyExportedComponent = TextC("sbt> g8Scaffold drawerNavigation1234")
-
-
-
-
-
-
   //@JSExportTopLevel("MyExportedComponent")
-  /*val root = StackNavigator(
-    StackNavigatorConfig(
-      cardStyle = GlobalStyles.defaultCardStyle,
-      navigationOptions = NavigationStackScreenOptions(
-        headerTintColor = "white",
-        headerBackTitle = "Back",
-        headerStyle = GlobalStyles.defaultHeader
-      )
-    ),
-    registerStackScreen[AboutScreen](navigationOptions = NavigationStackScreenOptions(title = "About"))
-  )*/
+  def MyExportedComponent(text: String) = TextC(text)
 
+}
 
-
+@JSExportTopLevel("MyExportedComponent")
+class MyCustomText(text: String) {
+  var someVar = "initialValue"
+  @JSExport
+  def setSomeVar(text: String): Unit = {
+    someVar = text
+  }
+  @JSExport
+  def render(): ReactElement = {
+    return TextC(text + someVar)
+  }
 }
