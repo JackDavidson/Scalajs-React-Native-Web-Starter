@@ -1,17 +1,18 @@
 import React from "react";
-import {Dimensions, Platform, StatusBar} from "react-native";
+import {Dimensions, StatusBar} from "react-native";
 import model from './Model/Model';
-import LowerMenu from "./Menu/LowerMenu";
+/*import LowerMenu from "./Menu/LowerMenu";
 import Elm from "./Util/Elm";
 import Tab from "./Components/Tab";
-const SRI = require("./assets/generated/scalajs-output").MyExportedComponent;
+*/
+const SRI = require("./assets/generated/scalajs-output").MyScalajsTopLevelComponent;
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     StatusBar.setHidden(true, 'slide');
     const { width, height } = Dimensions.get('window');
-    this.state = { width: width, height: height}
+    this.state = {...model, width: width, height: height}
     console.log("model is: " + model)
     Dimensions.addEventListener("change", this.updateDimensions.bind(this));
   }
@@ -20,12 +21,15 @@ export default class App extends React.Component {
     this.setState({height: height, width: width});
   }
   render() {
+
     console.log("state is: " + this.state)
     const SRIWText = SRI('starting text ')
-    console.log('sri w text is:')
+    console.log('sri text is:')
     console.log(SRIWText.someVar$1)
     SRIWText.setSomeVar('some new text')
     return SRIWText.render()
+
+/*
     return (
       <Elm>
         <StatusBar hidden />
@@ -39,6 +43,7 @@ export default class App extends React.Component {
         <Tab screenHeight={this.state.height}
           screenWidth={this.state.width}/>
       </Elm>
-    );
+
+    );*/
   }
 }

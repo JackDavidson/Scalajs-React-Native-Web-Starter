@@ -1,28 +1,18 @@
 package sri.mobile.template
 
 import sri.core.ReactElement
-import sri.universal.components.TextC
 
 import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 import scala.language.postfixOps
-import scala.scalajs.js
 
-object MobileApp {
-  def main(args: Array[String]) = {}
-  //@JSExportTopLevel("MyExportedComponent")
-  def MyExportedComponent(text: String) = TextC(text)
-
-}
-
-@JSExportTopLevel("MyExportedComponent")
-class MyCustomText(text: String) {
+// This shows how to export a Scala.js component. Note that JSExportTopLevel works on the internals of an object as well
+// as on classes. Classes appear to react as functions which return an instance of the class.
+@JSExportTopLevel("MyScalajsTopLevelComponent")
+class MyScalajsTopLevelComponent(text: String) {
   var someVar = "initialValue"
+  // to make a function callable by react/javascript, simply add a @JSExport annotation
   @JSExport
-  def setSomeVar(text: String): Unit = {
-    someVar = text
-  }
+  def setSomeVar(text: String): Unit = someVar = text
   @JSExport
-  def render(): ReactElement = {
-    return TextC(text + someVar)
-  }
+  def render(): ReactElement = UndoButton.img
 }

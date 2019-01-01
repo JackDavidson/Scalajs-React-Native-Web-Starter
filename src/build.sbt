@@ -1,5 +1,6 @@
-//enablePlugins(SriPlatformPlugin)
+// the scalaJS plugin can compile our code to javascript as well as java bytecode
 enablePlugins(ScalaJSPlugin)
+// we have no main function in the scalaJS code. The main is in react code.
 scalaJSUseMainModuleInitializer := false
 scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule))
 
@@ -16,7 +17,14 @@ lazy val versions = new {
   val result = (fastOptJS in Compile).value
   val inputFile = result.data
   val outputFile = new File("./assets/generated/scalajs-output.js")
-  IO.write(outputFile, "/*eslint-disable no-undef*/\n" + IO.read(inputFile))
+  IO.write(outputFile, "/* eslint-disable */\n" + IO.read(inputFile))
+  result
+}
+(fullOptJS in Compile) := {
+  val result = (fullOptJS in Compile).value
+  val inputFile = result.data
+  val outputFile = new File("./assets/generated/scalajs-output.js")
+  IO.write(outputFile, "/* eslint-disable */\n" + IO.read(inputFile))
   result
 }
 
@@ -27,8 +35,6 @@ libraryDependencies ++= Seq(
   "scalajs-react-interface" %%% "mobile"                  % versions.sri,
   "scalajs-react-interface" %%% "universal"               % versions.sri,
   "scalajs-react-interface" %%% "vector-icons"            % versions.sri,
-/*  "scalajs-react-interface" %%% "platform-config-ios"     % versions.sri % "ios", 
-  "scalajs-react-interface" %%% "platform-config-android" % versions.sri % "android", */
   "scalajs-react-interface" %%% "navigation"              % versions.sri
 )
 

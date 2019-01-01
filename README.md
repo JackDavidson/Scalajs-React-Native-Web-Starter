@@ -8,9 +8,12 @@ Thins to do:
 3. Remove references to tabmaker, the app I was working on when putting this together
 4. Fully document setup
 5. Create Dockerfile and provide instructions to use it for a truly quick start
+6. Update version of react to latest
  
 
 ## Quick Start
+
+https://facebook.github.io/react-native/docs/getting-started.html 
 
 1. install dependencies (commands are for ubuntu 16.04
 ```sudo apt-get install -y nodejs
