@@ -1,9 +1,8 @@
 package sri.mobile.template
 
-import sri.core.ReactElement
+import sri.core.ReactNode
 
 import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
-import scala.language.postfixOps
 
 // This shows how to export a Scala.js component. Note that JSExportTopLevel works on the internals of an object as well
 // as on classes. Classes appear to react as functions which return an instance of the class.
@@ -14,5 +13,5 @@ class MyScalajsTopLevelComponent(text: String) {
   @JSExport
   def setSomeVar(text: String): Unit = someVar = text
   @JSExport
-  def render(): ReactElement = UndoButton.img
+  def render(): ReactNode = LowerMenu()()
 }

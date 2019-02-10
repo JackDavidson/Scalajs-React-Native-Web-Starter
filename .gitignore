@@ -4,6 +4,7 @@ src/target
 src/.idea
 src/project/project
 src/project/target
+src/.expo
 
 # dependencies
 /node_modules
