@@ -4,6 +4,7 @@ import sri.core.{CreateElementSF, ReactElement}
 import sri.universal.components.{Image, View}
 
 import scala.scalajs.js
+import js.Dynamic.literal
 
 object MenuVerticalAlign extends Enumeration {
   type MenuVerticalAlign = Value
@@ -28,7 +29,7 @@ case class ButtonParams(scale: Double, top: Double, left: Double)
 case class Button(img:  ImageSrc, onPress: () => Unit) extends RBoilerp (
   (p: ButtonParams) =>
     Image(key = 1, sourceDynamic=img.src,
-      style=js.Dynamic.literal(
+      style=literal(
         position="absolute",
         width=img.width * p.scale,
         height=img.height * p.scale,
