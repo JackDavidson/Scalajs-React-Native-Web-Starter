@@ -21,14 +21,8 @@ export default class App extends React.Component {
     this.setState({height: height, width: width});
   }
   render() {
-
     console.log("state is: " + this.state)
-    const SRIWText = SRI('starting text ')
-    console.log('sri text is:')
-    console.log(SRIWText.someVar$1)
-    SRIWText.setSomeVar('some new text')
-    return SRIWText.render()
-
+    return SRI(this.state.display.platform, this.state.width, this.state.height).render()
 /*
     return (
       <Elm>
