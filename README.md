@@ -16,7 +16,8 @@ Thins to do:
 https://facebook.github.io/react-native/docs/getting-started.html 
 
 1. install dependencies (commands are for ubuntu 16.04
-```sudo apt-get install -y nodejs
+```
+sudo apt-get install -y nodejs
 sudo ln -s /usr/local/bin/node /usr/local/bin/nodejs
 sudo npm install -g react expo-cli react-native-scripts react-scripts
 npm install
@@ -27,16 +28,19 @@ sudo apt-get install sbt
 ```
 
 2. have scala.js generate the javascript file (~ enabels hot-recompiles)
-```cd src
-sbt ~fastOptJS 
+```
+cd src
+sbt ~fastOptJS
 ```
 
 3. run on web
-```react-scripts start
+```
+react-scripts start
 ```
 
 4. run on android (requires an emulator or phone, plus android SDK 27)
-```react-native-scripts android
+```
+react-native-scripts android
 ```
 
 ## Introduction
